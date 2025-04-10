@@ -21,7 +21,7 @@ const Login = () => {
       return false;
     }
 
-    let result = await fetch("http://localhost:3000/login", {
+    let result = await fetch("http://backend:3000/login", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },

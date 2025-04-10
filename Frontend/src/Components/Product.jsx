@@ -5,7 +5,7 @@ const Product = () => {
 
   async function ShowProducts() {
     try {
-      const response = await fetch("http://localhost:3000/show", {
+      const response = await fetch("http://backend:3000/show", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

@@ -26,7 +26,7 @@ const Signup = () => {
     }
 
     try {
-      let result = await fetch("http://localhost:3000/signup", {
+      let result = await fetch("http://backend:3000/signup", {
         method: "post",
         body: JSON.stringify({ name, email, password }),
         headers: { "Content-Type": "application/json" },

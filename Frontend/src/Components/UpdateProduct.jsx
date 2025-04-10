@@ -11,7 +11,7 @@ const UpdateProduct = () => {
   const UpdateProduct = async (e) => {
     e.preventDefault();
 
-    let result = await fetch("http://localhost:3000/update", {
+    let result = await fetch("http://backend:3000/update", {
       method: "get",
       headers: { "Content-Type": "application/json" },
     });

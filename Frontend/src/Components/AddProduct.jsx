@@ -16,7 +16,7 @@ const AddProduct = () => {
     const auth = JSON.parse(localStorage.getItem("user"));
     let userid = auth._id;
 
-    let result = await fetch("http://localhost:3000/add", {
+    let result = await fetch("http://backend:3000/add", {
       method: "post",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ name, price, category, company, userid }),
