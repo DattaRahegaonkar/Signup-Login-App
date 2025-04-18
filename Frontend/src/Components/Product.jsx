@@ -1,3 +1,5 @@
+const apiBaseUrl = import.meta.env.VITE_API_URL;
+
 import React, { useEffect, useState } from "react";
 
 const Product = () => {
@@ -5,7 +7,7 @@ const Product = () => {
 
   async function ShowProducts() {
     try {
-      const response = await fetch("http://backend:3000/show", {
+      const response = await fetch(`${apiBaseUrl}/show`, {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

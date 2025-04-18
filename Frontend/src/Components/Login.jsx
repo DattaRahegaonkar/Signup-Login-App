@@ -1,3 +1,5 @@
+const apiBaseUrl = import.meta.env.VITE_API_URL;
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +9,7 @@ const Login = () => {
   const [Fill, setFill] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
 
   useEffect(() => {
     const auth = localStorage.getItem("user");
@@ -21,7 +24,7 @@ const Login = () => {
       return false;
     }
 
-    let result = await fetch("http://backend:3000/login", {
+    let result = await fetch(`${apiBaseUrl}/login`, {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },

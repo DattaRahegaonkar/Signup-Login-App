@@ -1,3 +1,4 @@
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +27,7 @@ const Signup = () => {
     }
 
     try {
-      let result = await fetch("http://backend:3000/signup", {
+      let result = await fetch(`${apiBaseUrl}/signup`, {
         method: "post",
         body: JSON.stringify({ name, email, password }),
         headers: { "Content-Type": "application/json" },

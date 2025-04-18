@@ -1,3 +1,4 @@
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 import { useState } from "react";
 
 const UpdateProduct = () => {
@@ -11,7 +12,7 @@ const UpdateProduct = () => {
   const UpdateProduct = async (e) => {
     e.preventDefault();
 
-    let result = await fetch("http://backend:3000/update", {
+    let result = await fetch(`${apiBaseUrl}/update`, {
       method: "get",
       headers: { "Content-Type": "application/json" },
     });
