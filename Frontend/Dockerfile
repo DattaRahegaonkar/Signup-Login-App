@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 #run
-CMD ["npm","run","dev","--host","--port","5000"]
+CMD ["npm","run","dev","--","--host","--port","5000"]
