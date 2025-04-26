@@ -92,13 +92,6 @@ app.patch("/update", (req, res) => {
   res.send("ok");
 });
 
-// app.get("/profile", async (req, res) => {
-
-//   let profile = await Users.
-
-//   res.send("ok");
-// });
-
 const port = process.env.PORT | 3000
 
 app.listen(port, () => {
