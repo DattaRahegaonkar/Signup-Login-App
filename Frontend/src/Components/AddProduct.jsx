@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const AddProduct = () => {
