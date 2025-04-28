@@ -10,6 +10,7 @@ Run npm install
 
 #copying code
 COPY . .
+COPY .env .env
 
 #port
 EXPOSE 5000
