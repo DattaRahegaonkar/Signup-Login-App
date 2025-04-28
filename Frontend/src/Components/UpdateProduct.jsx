@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const apiBaseUrl = import.meta.env.VITE_API_URL;
 import { useState } from "react";
 
