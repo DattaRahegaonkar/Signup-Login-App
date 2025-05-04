@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - signup_network
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: signup-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./Backend/.env
+    networks:
+      - signup_network
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: signup-frontend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./Frontend/.env
+    networks:
+      - signup_network
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
+
+networks:
+  signup_network:
+  
