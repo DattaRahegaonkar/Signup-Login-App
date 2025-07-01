@@ -1,19 +1,20 @@
-#Base Image
-FROM node:21-alpine
+# Base Node image
+FROM node:18-alpine
 
-#Working Directory
+# Set working dir
 WORKDIR /app
 
-#installing packages
+# Copy package files
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
-#copying code
+# Copy app source
 COPY . .
-COPY .env .env
 
-#port
+# Expose app port
 EXPOSE 3000
 
-#run
+# Start the app
 CMD ["node","index.js"]

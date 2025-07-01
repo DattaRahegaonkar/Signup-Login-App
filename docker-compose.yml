@@ -9,7 +9,7 @@ services:
     volumes:
       - mongo-data:/data/db
     networks:
-      - signup_network
+      - signup-login-network
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
@@ -21,13 +21,13 @@ services:
     build:
       context: ./Backend
       dockerfile: Dockerfile
-    container_name: signup-backend
+    container_name: backend
     ports:
       - "3000:3000"
     env_file:
       - ./Backend/.env
     networks:
-      - signup_network
+      - signup-login-network
     depends_on:
       - mongo
     restart: unless-stopped
@@ -41,13 +41,11 @@ services:
     build:
       context: ./Frontend
       dockerfile: Dockerfile
-    container_name: signup-frontend
+    container_name: frontend
     ports:
       - "5000:5000"
-    env_file:
-      - ./Frontend/.env
     networks:
-      - signup_network
+      - signup-login-network
     depends_on:
       - backend
     restart: unless-stopped
@@ -61,4 +59,5 @@ volumes:
   mongo-data:
 
 networks:
-  signup_network:
+  signup-login-network:
+    external: true

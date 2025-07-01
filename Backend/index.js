@@ -9,6 +9,10 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("App Running !!!")
+})
+
 app.post("/signup", async (req, res) => {
   try {
     let { email } = req.body;
