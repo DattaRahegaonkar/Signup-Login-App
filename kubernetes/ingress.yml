@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: signup-login-ingress
+  namespace: signup-login-app
+  labels:
+    name: signup-login-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: signuplogin.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: frontend
+            port: 
+              number: 5000
+      - pathType: Prefix
+        path: "/signup"
+        backend:
+          service:
+            name: backend
+            port: 
+              number: 3000
+      
+

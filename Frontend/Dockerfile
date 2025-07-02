@@ -6,9 +6,6 @@ FROM node:18-alpine AS builder
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy environment variables (used by Vite during build)
-COPY .env .
-
 # Copy only package files to install dependencies
 COPY package*.json ./
 
