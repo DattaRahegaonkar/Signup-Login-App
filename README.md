@@ -34,10 +34,9 @@ A simple and secure full-stack **Signup and Login Application** built using **No
 - Kubernetes (Kind or Minikube)
 - Ingress NGINX
 
+# Docker Deployment
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
+## Getting Started
 
 ```
 git clone https://github.com/DattaRahegaonkar/Signup-Login-App.git
