@@ -76,3 +76,35 @@ Run frontend
 ```
 docker run -d -p 5000:5000 --network signup-login-app --name signup-login--app-frontend signup-login-frontend:latest
 ```
+
+# Kubernetes Deployment
+In The `Kubernetes` directory holds Kubernetes manifests for deploying your application on Kubernetes Kind cluster using ingress. Understand and customize these files to suit your project needs.
+
+- `mongo-deployment.yaml & mongo-service.yml` – Deploys MongoDB and its service.
+- `backend-deployment.yaml & backend-service.yml` – Deploys the Node.js Express API and its service.
+- `frontend-deployment.yaml & frontend-service.yml` – Deploys the React application.
+- `ingress.yaml` – Sets up routing rules to access the app via browser.
+
+apply the manifest files
+```
+kubectl apply -f namespace.yml
+kubectl apply -f mongo-pv.yml
+kubectl apply -f mongo-pvc.yml
+kubectl apply -f mongo-deployment.yaml
+kubectl apply -f mongo-service.yaml
+kubectl apply -f backend-deployment.yaml
+kubectl apply -f backend-service.yaml
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f frontend-service.yaml
+kubectl apply -f ingress.yaml
+```
+
+Expose the Ingress
+```
+kubectl port-forward -n ingress-nginx service/ingress-nginx-controller 8080:80 --address=0.0.0.0
+```
+
+Open Your Browser on 
+```
+http://localhost:8080
+```
