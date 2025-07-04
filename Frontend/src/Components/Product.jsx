@@ -7,8 +7,14 @@ const Product = () => {
   const [all, setAll] = useState([]);
 
   async function ShowProducts() {
+    // try {
+    //   const response = await fetch(`${apiBaseUrl}/show`, {
+    //     method: "GET",
+    //     headers: { "Content-Type": "application/json" },
+    //   });
+
     try {
-      const response = await fetch(`${apiBaseUrl}/show`, {
+      const response = await fetch("/show", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });

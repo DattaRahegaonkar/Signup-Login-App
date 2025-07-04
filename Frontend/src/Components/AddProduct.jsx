@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const apiBaseUrl = import.meta.env.VITE_API_URL;
+// const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const AddProduct = () => {
   // Separate useState variables for each field
@@ -19,7 +19,13 @@ const AddProduct = () => {
     const auth = JSON.parse(localStorage.getItem("user"));
     let userid = auth._id;
 
-    let result = await fetch(`${apiBaseUrl}/add`, {
+    // let result = await fetch(`${apiBaseUrl}/add`, {
+    //   method: "post",
+    //   headers: { "content-type": "application/json" },
+    //   body: JSON.stringify({ name, price, category, company, userid }),
+    // });
+
+    let result = await fetch("/add", {
       method: "post",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ name, price, category, company, userid }),

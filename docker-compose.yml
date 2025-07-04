@@ -18,9 +18,7 @@ services:
       retries: 5
 
   backend:
-    build:
-      context: ./Backend
-      dockerfile: Dockerfile
+    image: dattarahegaonkar09/signup-login-e-commerce-backend
     container_name: backend
     ports:
       - "3000:3000"
@@ -38,9 +36,7 @@ services:
       retries: 5
 
   frontend:
-    build:
-      context: ./Frontend
-      dockerfile: Dockerfile
+    image: dattarahegaonkar09/signup-login-e-commerce-frontend
     container_name: frontend
     ports:
       - "5000:5000"

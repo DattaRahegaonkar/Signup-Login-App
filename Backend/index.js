@@ -6,12 +6,18 @@ const Users = require("./db/User");
 const Product = require("./db/Product");
 
 app.use(express.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cors({
+  origin: '*',
+  credentials: true
+}));
 
 app.get("/", (req, res) => {
   res.send("App Running !!!")
 })
+
+app.get("/health", (req, res) => res.send("OK"));
 
 app.post("/signup", async (req, res) => {
   try {
@@ -96,7 +102,7 @@ app.patch("/update", (req, res) => {
   res.send("ok");
 });
 
-const port = process.env.PORT | 3000
+const port = process.env.PORT || 3000
 
 app.listen(port, () => {
   console.log("Server is Running");

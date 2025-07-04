@@ -25,7 +25,13 @@ const Login = () => {
       return false;
     }
 
-    let result = await fetch(`${apiBaseUrl}/login`, {
+    // let result = await fetch(`${apiBaseUrl}/login`, {
+    //   method: "post",
+    //   body: JSON.stringify({ email, password }),
+    //   headers: { "Content-Type": "application/json" },
+    // });
+
+    let result = await fetch("/login", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },

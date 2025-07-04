@@ -27,8 +27,15 @@ const Signup = () => {
       return false;
     }
 
+    // try {
+    //   let result = await fetch(`${apiBaseUrl}/signup`, {
+    //     method: "post",
+    //     body: JSON.stringify({ name, email, password }),
+    //     headers: { "Content-Type": "application/json" },
+    //   });
+
     try {
-      let result = await fetch(`${apiBaseUrl}/signup`, {
+      let result = await fetch("/signup", {
         method: "post",
         body: JSON.stringify({ name, email, password }),
         headers: { "Content-Type": "application/json" },

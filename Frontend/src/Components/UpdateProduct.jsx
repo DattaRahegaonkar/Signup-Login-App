@@ -13,7 +13,12 @@ const UpdateProduct = () => {
   const UpdateProduct = async (e) => {
     e.preventDefault();
 
-    let result = await fetch(`${apiBaseUrl}/update`, {
+    // let result = await fetch(`${apiBaseUrl}/update`, {
+    //   method: "get",
+    //   headers: { "Content-Type": "application/json" },
+    // });
+
+    let result = await fetch("/update", {
       method: "get",
       headers: { "Content-Type": "application/json" },
     });
