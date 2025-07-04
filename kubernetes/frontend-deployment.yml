@@ -14,9 +14,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: dattarahegaonkar09/signup-login-e-commerce-frontend
+        image: dattarahegaonkar09/signup-login-frontend-using-ingress
         ports:
         - containerPort: 5000
-        env:
-        - name: VITE_API_URL
-          value: http://backend:3000
